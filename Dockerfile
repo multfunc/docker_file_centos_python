@@ -1,4 +1,5 @@
 FROM centos:7
+ENV LANG C.UTF-8
 RUN yum update -y
 RUN yum -y install gcc glibc g++ gcc-c++ make automake autoconf libtool  zlib* libffi-devel openssl-devel openssl net-tools  unzip zip
 ADD ./Python-3.7.3.tgz /opt/python
@@ -18,3 +19,4 @@ ADD ./nginx-1.17.0.tar.gz /opt/nginx
 WORKDIR /opt/nginx/nginx-1.17.0
 RUN ./configure&&make&&make install
 RUN rm -rf /etc/localtime&&ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
